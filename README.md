@@ -163,7 +163,6 @@ Inside the project files, this is what your CSS for the `#img_text` div should l
     margin: 20px 0px 20px 0px;
     height: 300px;
 }
-
 ```
 
 ## Task 5 - Images
@@ -300,6 +299,6 @@ Let's try adding a couple glyphicons to the navbar we just created. Try adding t
 ## Task ∞ - This Is Not The End
 We have just covered a few features out of the many, many features that has made Bootstrap a primary tool for most front-end developers. You can find out more about the [components](http://getbootstrap.com/components/), [CSS](http://getbootstrap.com/css/) & [JavaScript](http://getbootstrap.com/javascript/) of Bootstrap on their [website](http://getbootstrap.com). I would also highly recommend a lot of the online courses available on websites like edX & CodeAcademy to further your knowledge. Alternatively, play around with Bootstrap on your own and head to [StackOverflow](http://stackoverflow.com/) or [w3schools](http://www.w3schools.com/) whenever you hit a wall.
 
-Additionally, you can jumpstart your website by using a template or theme from [here](http://startbootstrap.com), [here](https://wrapbootstrap.com) or [here](http://bootstrapbay.com/themes).
+Additionally, you can jumpstart your website by using a template or theme from [here](http://startbootstrap.com), [here](https://wrapbootstrap.com), [here](http://www.bootstrapzero.com) or [here](http://bootstrapbay.com/themes).
 
 *P.S.: Bootstrap v4.0 should be releasing soon!*
