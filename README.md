@@ -273,6 +273,8 @@ Look at the navbar on your browser and try to compare the different parts to the
 
 This navbar can be further customized in various ways. Firstly, if you want a more dark navbar replace the `.navbar-default` class with `.navbar-inverse`. Or if you want the navbar to be constantly fixed to the top of the webpage regardless of where the user has scrolled to, add the `.navbar-fixed-top` class.
 
+The Bootstrap navbar is responsive & mobile-friendly by default. Try resizing your browser's width and see how your navbar changes.
+
 Read more about Bootstrap's navbar [here](http://getbootstrap.com/components/#navbar).
 
 
