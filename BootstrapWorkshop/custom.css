@@ -1,0 +1,21 @@
+#img_text {
+    color: white;
+    text-align: center;
+    background-image: url(img/bg_img.jpg);
+    background-attachment: fixed;           /* Parallax Scrolling Effect */
+    margin: 20px 0px 20px 0px;
+    height: 300px;
+}
+
+#img_text h2 {
+    font-size: 75px;
+}
+
+.jumbotron {
+    padding: 30px;
+}
+
+#button_div {
+    padding: 40px;
+    text-align: center;
+}
