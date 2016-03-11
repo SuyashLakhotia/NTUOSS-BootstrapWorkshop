@@ -6,23 +6,23 @@ This workshop is based on Bootstrap v3.3.5 and assumes basic knowledge of HTML &
 
 ***Disclaimer*** *-* *This document is only meant to serve as a reference for the attendees of the workshop. It does not cover all the concepts or implementation details discussed during the actual workshop.*
 
-###Workshop Details:<br>
+### Workshop Details:<br>
 **When?**: Friday, 18 Sep 2015. 6:30 PM - 8:30 PM.<br>
 **Where?**: Theatre@TheNest, Innovation Centre, Nanyang Technological University<br>
 **Who?**: NTU Open Source Society<br>
 
-###Questions?
+### Questions?
 Raise your hand at any time during the workshop or shoot me an [e-mail](mailto:suyashlakhotia@gmail.com) later.
 
-###Errors?
+### Errors?
 If you find any mistake (typo or anything else), please make a pull request or [post an issue](https://github.com/SuyashLakhotia/NTUOSS-BootstrapWorkshop/issues/new)! Thanks!<br><br>
 
 
 ## Task 0 - Initial Setup
 1. Download a text editor if you don't have one already. I would recommend either:
-  1. [Sublime Text 2](http://www.sublimetext.com/2)
-  2. [Brackets](http://brackets.io)
-2. Download Boostrap [here](https://github.com/twbs/bootstrap/releases/download/v3.3.5/bootstrap-3.3.5-dist.zip).
+	1. [Sublime Text 2](http://www.sublimetext.com/2)
+	2. [Brackets](http://brackets.io)
+2. Download Bootstrap [here](https://github.com/twbs/bootstrap/releases/download/v3.3.5/bootstrap-3.3.5-dist.zip).
 3. Download [this project](https://github.com/SuyashLakhotia/NTUOSS-BootstrapWorkshop/archive/master.zip) to get started.
 
 
@@ -63,12 +63,14 @@ This looks pretty simple. Let's add some style to it by converting it into somet
 
 1. Wrap the code inside a `<div>`. This is good programming practice and makes implementing CSS classes a lot easier.
 2. Let's assign the default `.jumbotron` class to the div. Just like that, Bootstrap allows you to make a pretty appealing title for your page.
-3. Try adding a `.container` class before the `.jumbotron` class. Did you notice what changed?
+3. Try wrapping the `.jumbotron` div with a `.container` div. Did you notice what changed?
 
 ```html
-<div class="container jumbotron">
-	<h1>HELLO, WORLD!</h1>
-	<h3>This might be my first <em>Bootstrapped</em> website.</h3>
+<div class="container">
+    <div class="jumbotron">
+        <h1>HELLO, WORLD!</h1>
+        <h3>This might be my first <em>Bootstrapped</em> website.</h3>
+    </div>
 </div>
 ```
 
@@ -101,11 +103,12 @@ Now that we're done with the title of the page, let's move on to the bundle of t
 Bootstrap offers a simple grid system made up of rows & columns where each row has exactly 12 columns. This allows you to layout any HTML element fairly easily. Let's try doing that for the three paragraphs of text.
 
 1. Wrap each paragraph inside the `#text_row` div with a `<div>`.
-2. In order to 'activate' the grid system, we have to create a row. In the overarching `<div>` i.e. `#text_row`, add the `.container-fluid` & `.row` classes. This creates a row with everything inside the `<div>` (i.e. the three paragraphs). Things still pretty much look the same right?
+2. In order to 'activate' the grid system, we have to create a row. In the overarching `<div>` i.e. `#text_row`, add the `.container-fluid` & `.row` classes in a nested fashion. This creates a row with everything inside the `<div>` (i.e. the three paragraphs). Things still pretty much look the same right?
 3. Let's assign columns to each paragraph now. Add the `.col-md-4` class to each paragraph in their own `<div>` tags. This assigns 4 columns to each of the paragraphs.
 
 ```html
-<div class="container-fluid row" id="text_row">
+<div class="container-fluid" id="text_row">
+    <div class="row">
         <div class="col-md-4">
             <p>Lorem ipsum dolor sit amet...</p>
         </div>
@@ -116,6 +119,7 @@ Bootstrap offers a simple grid system made up of rows & columns where each row h
             <p>Lorem ipsum dolor sit amet...</p>
         </div>
     </div>
+</div>
 ```
 
 What we have just done is assign 1/3 of the viewport to each paragraph by putting each paragraph in 4 columns out of a total of 12 columns. Feel free to play around with these numbers but remember that the total number of columns in a row must not exceed 12.
@@ -123,7 +127,8 @@ What we have just done is assign 1/3 of the viewport to each paragraph by puttin
 Now, let's say we wanted the first paragraph to start after one column of space. In that case, we would use the `.col-md-offset-X` class where `X` represents the number of columns to offset by.
 
 ```html
-<div class="container-fluid row" id="text_row">
+<div class="container-fluid" id="text_row">
+    <div class="row">
         <div class="col-md-3 col-md-offset-1">
             <p>Lorem ipsum dolor sit amet...</p>
         </div>
@@ -134,6 +139,7 @@ Now, let's say we wanted the first paragraph to start after one column of space.
             <p>Lorem ipsum dolor sit amet...</p>
         </div>
     </div>
+</div>
 ```
 
 **Note:** When an offset column is added, it is important to decrease the actual content's width by the offset column's width so that the total number of columns in the row is still 12.
@@ -152,14 +158,14 @@ It's actually pretty simple. All you need to do is add one simple line of CSS to
 background-attachment: fixed;
 ```
 
-Inside the project files, this is what your CSS for the `#img_text` div should look like after adding the above line:
+Inside the project files, this is what the CSS for the `#img_text` div should look like after adding the above line:
 
 ```css
 #img_text {
     color: white;
     text-align: center;
     background-image: url(img/bg_img.jpg);
-    background-attachment: fixed;		/* Parallax Scrolling Effect */
+    background-attachment: fixed;
     margin: 20px 0px 20px 0px;
     height: 300px;
 }
@@ -169,36 +175,40 @@ Inside the project files, this is what your CSS for the `#img_text` div should l
 Alright, let's get back to it. Let's try arranging all the images below the parallax scrolling we just built. Try implementing the grid system from **Task 4** in order to give each of the images equal width in a row. Your finished code should look a little something like this:
 
 ```html
-<div class="row" id="img_row">
-	<div class="col-md-4">
-		<img src="http://lorempixel.com/600/600/cats/1">
-	</div>
-        
-	<div class="col-md-4">
-   		<img src="http://lorempixel.com/600/600/cats/2">
-   	</div>
-        
-   	<div class="col-md-4">
- 		<img src="http://lorempixel.com/600/600/cats/3">
-	</div>
+<div class="container-fluid" id="img_row">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="http://lorempixel.com/600/600/cats/1">
+        </div>
+
+        <div class="col-md-4">
+            <img src="http://lorempixel.com/600/600/cats/2">
+        </div>
+
+        <div class="col-md-4">
+            <img src="http://lorempixel.com/600/600/cats/3">
+        </div>
+    </div>
 </div>
 ```
 
 You must have noticed that due to the images being wider than the columns, they get cropped. Let's fix that. Add the `.img-responsive` class to each `<img>` tag and let the magic happen. Just like that, Bootstrap automatically fits the images according to the width assigned to it. This also helps when viewing the website through a mobile browser. Try resizing your browser. The images should shrink automatically.
 
 ```html
-<div class="row" id="img_row">
-	<div class="col-md-4">
-		<img src="http://lorempixel.com/600/600/cats/1" class="img-responsive">
-	</div>
-        
-	<div class="col-md-4">
-   		<img src="http://lorempixel.com/600/600/cats/2" class="img-responsive">
-   	</div>
-        
-   	<div class="col-md-4">
- 		<img src="http://lorempixel.com/600/600/cats/3" class="img-responsive">
-	</div>
+<div class="container-fluid" id="img_row">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="http://lorempixel.com/600/600/cats/1" class="img-responsive">
+        </div>
+
+        <div class="col-md-4">
+            <img src="http://lorempixel.com/600/600/cats/2" class="img-responsive">
+        </div>
+
+        <div class="col-md-4">
+            <img src="http://lorempixel.com/600/600/cats/3" class="img-responsive">
+        </div>
+    </div>
 </div>
 ```
 
@@ -270,7 +280,7 @@ Look at the navbar on your browser and try to compare the different parts to the
 
 **Note**: To create a link to a part of the same webpage, the `href` attribute of the link should point to the `id` attribute of the destination HTML element.
 
-This navbar can be further customized in various ways. Firstly, if you want a more dark navbar replace the `.navbar-default` class with `.navbar-inverse`. Or if you want the navbar to be constantly fixed to the top of the webpage regardless of where the user has scrolled to, add the `.navbar-fixed-top` class.
+This navbar can be further customized in various ways. If you want a dark navbar, replace the `.navbar-default` class with `.navbar-inverse`. Or if you want the navbar to be constantly fixed to the top of the viewport regardless of where the user has scrolled to, add the `.navbar-fixed-top` class.
 
 The Bootstrap navbar is responsive & mobile-friendly by default. Try resizing your browser's width and see how your navbar changes.
 
@@ -278,7 +288,7 @@ Read more about Bootstrap's navbar [here](http://getbootstrap.com/components/#na
 
 
 ## Bonus - Glyphicons
-What are glyphicons you ask? Bootstrap comes with a comprehensive set of free icons (smaller than [Font Awesome](https://fortawesome.github.io/Font-Awesome/) though) that can be used throughout your website. You can find their entire list of icons [here](http://getbootstrap.com/components/#glyphicons).
+What are glyphicons you ask? Bootstrap comes with a comprehensive set of free icons (smaller than [Font Awesome](https://fortawesome.github.io/Font-Awesome/) though) that can be used throughout your website. You can find the entire list of icons [here](http://getbootstrap.com/components/#glyphicons).
 
 So, how do glyphicons work? A glyphicon can be added like below where `X` represents the icon name:
 
@@ -301,4 +311,4 @@ We have just covered a few features out of the many, many features that has made
 
 Additionally, you can jumpstart your website by using a template or theme from [here](http://startbootstrap.com), [here](https://wrapbootstrap.com), [here](http://www.bootstrapzero.com) or [here](http://bootstrapbay.com/themes).
 
-*P.S.: Bootstrap v4.0 should be releasing soon!*
+*P.S. Bootstrap v4.0 should be releasing soon!*
