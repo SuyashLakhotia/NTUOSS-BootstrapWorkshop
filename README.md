@@ -1,4 +1,4 @@
-# NTUOSS-BootstrapWorkshop
+# NTUOSS Bootstrap 3 Workshop
 
 *by Suyash Lakhotia for NTU Open Source Society*
 
